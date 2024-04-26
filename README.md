@@ -1,32 +1,22 @@
-# Doc Reader
+# Document Reader
 
-## App Usage
-L'applicazione android effettua la lettura di documenti elettronici di viaggio come passaporto o carta d'identità elettronica.
+## Application Usage
+The Android application is designed to read electronic travel documents, such as passports or electronic identification cards.
 
-Una volta selezionato il documento dalla schermata iniziale, si apre la preview della fotocamera (orientamento landscape) all'interno della quale è presente un overlay rettangolare, delle dimensioni adatte rispetto al tipo di documento selezionato.
+Upon selecting a document from the initial screen, a camera preview opens in landscape orientation. Within the preview, a rectangular overlay appears, sized appropriately for the chosen document type.
 
-Facendo touch sulla preview l'applicazione scatta una foto e la visualizza. 
+Tapping the preview prompts the application to capture a photograph and display it. The user can press the "Cancel" button to retake the photo or "Ok" to proceed to the next step. For passports, this initial photo step is skipped as only one side needs to be captured.
 
-Premendo Cancel è possibile rifare lo scatto.
+In the subsequent phase, the camera preview reopens to capture the back side of the identification card or passport. By properly framing the document and ensuring even lighting, the app can read the Machine Readable Zone (MRZ) code located at the bottom.
 
-Premendo Ok si procede al passo successivo. 
+Once the MRZ code is successfully read, the application automatically captures a photo.
 
-Nel caso di Passaporto questo prima foto è salta, dato che la parte interessata del passaporto è solo una.
+Following this, the user can bring the document closer to the NFC sensor, allowing the app to read and display the associated data.
 
-Nella fase successiva si riapre la preview della fotocamera per scattare la foto all parte posteriore della carta d'identità o del passaporto.
+## Development Usage
 
-Inquadrando opportunamente il documento e facendo attenzione che la luce sia omogenea, l'app legge il codice MRZ presente in basso.
+For development purposes, it is necessary to download the appropriate version of the OpenCV Android SDK (opencv-4.1.1-android-sdk) and specify the relative path in the app's Gradle configuration.
 
-Una volta letto il codice scatta la foto automaticamente.
+The "assets" folder contains the trained data for the ocrb font, required by Tesseract OCR engine.
 
-Successivamente avvicinando il documento al sensore NFC effettua la lettura dei dati e li visualizza.
-
-## Dev Usage
-
-Per lo sviluppo è necessario scaricare la versione opportuna di opencv Android SDK (opencv-4.1.1-android-sdk) 
-indicare il path relativo nell'app gradle.
-
-In assets è presente il traineddata del font ocrb per tesseract.
-
-In assets è presente l' Italian Country Signing Certification Authority (CSCA) necessario ad effettuare la verifica del documento.
-
+Additionally, the "assets" folder includes the Italian Country Signing Certification Authority (CSCA), which is necessary for verifying the authenticity of the document.
