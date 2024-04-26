@@ -20,3 +20,5 @@ For development purposes, it is necessary to download the appropriate version of
 The "assets" folder contains the trained data for the ocrb font, required by Tesseract OCR engine.
 
 Additionally, the "assets" folder includes the Italian Country Signing Certification Authority (CSCA), which is necessary for verifying the authenticity of the document.
+
+**Note: This project was created during an internship and is no longer maintained.**
